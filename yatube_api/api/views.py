@@ -3,13 +3,12 @@ from rest_framework import viewsets, filters, mixins
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.permissions import IsAuthenticated
 
-from posts.models import Post, Group, User
+from posts.models import Post, Group
 from .serializers import (
     PostSerializer, CommentSerializer,
     GroupSerializer, FollowSerializer
 )
 from .permissions import IsAuthorOrReadOnly
-
 
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
